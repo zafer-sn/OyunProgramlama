@@ -15,10 +15,10 @@ public class temelYapilar : MonoBehaviour
     private void Start()
     {
         Debug.Log("START çalýþtý");
-        
+
     }
     /*
-     Update metodu bir saniyede kaç kara alýnýyorsa o kadar kez çalýþýr.
+     Update metodu bir saniyede kaç kare alýnýyorsa o kadar kez çalýþýr.
      FixedUpdate metodu saniyede daima 50 kez çalýþýr(deðiþtirilmezse)
      LateUpdate ise Update ile aynýdýr sadece Update ve FixedUpdate'ten sonra çalýþýr.
      */
