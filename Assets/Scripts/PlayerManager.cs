@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,16 +13,18 @@ public class PlayerManager : MonoBehaviour
     public GameObject barrel;
 
     public float power;
+    public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-
+        slider.value = health;
+        slider.maxValue = health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && EventSystem.current.currentSelectedGameObject == null)
         {
             Shooting();
         }
@@ -31,6 +35,7 @@ public class PlayerManager : MonoBehaviour
             health -= damage;
         else
             health = 0;
+        slider.value = health;
         AmIDead();
 
     }
@@ -47,6 +52,6 @@ public class PlayerManager : MonoBehaviour
     {
         GameObject temp_object;
         temp_object = Instantiate(barrel, barrel_position.position, Quaternion.identity);
-        temp_object.GetComponent<Rigidbody2D>().AddForce(Vector3.forward * power);
+        temp_object.GetComponent<Rigidbody2D>().AddForce(barrel_position.forward * power);
     }
 }

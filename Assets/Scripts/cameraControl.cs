@@ -6,10 +6,14 @@ public class cameraControl : MonoBehaviour
 {
     public Transform target;
     public float camera_speed;
+    private void Awake()
+    {
+        print("Awake");
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        print("Start");
     }
 
     // Update is called once per frame
